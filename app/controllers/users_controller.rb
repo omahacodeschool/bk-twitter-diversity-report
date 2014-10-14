@@ -13,7 +13,9 @@ class UsersController < ApplicationController
   end
   
   def create
-    @user=User.new(params[:user])
+    gender_array=params[:user][:gender_array].split(" ")
+    orientation_array=params[:user][:orientation_array].split(" ")
+    @user=User.new(:gender_array => gender_array, :orientation_array => orientation_array)
     binding.pry
     if @user.save
       redirect_to "users"
