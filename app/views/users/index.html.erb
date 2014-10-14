@@ -1,1 +1,9 @@
 <h1>User Index</h1>
+
+<% @users.each do |u| %>
+  <p>
+    <%= u.id %>
+    <%= u.gender_array %>
+    <%= u.orientation_array %>
+  </p>
+<% end %>

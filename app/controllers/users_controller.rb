@@ -14,8 +14,9 @@ class UsersController < ApplicationController
   
   def create
     @user=User.new(params[:user])
+    binding.pry
     if @user.save
-      redirect_to "index"
+      redirect_to "users"
     else
       render "new"
     end
