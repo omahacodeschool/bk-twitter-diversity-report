@@ -1,17 +1,9 @@
 TwitterDiversityReport::Application.routes.draw do
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
+  
+  get "users" => 'users#index', :as => "users"
+  get "users/new" => 'users#new', :as => "new_user"
+  post "users" => 'users#create'
 
-  # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
+  match 'auth/:provider/callback', to: 'sessions#create'
 
-  # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
-
- 
- 
- 
- 
 end

@@ -1,0 +1,13 @@
+<h1>Add Demographics</h1>
+
+<%= form_for @user do |f| %>
+  <p>
+    <%= f.label :gender_array %>
+    <%= f.text_field :gender_array %>
+  </p>
+  <p>
+    <%= f.label :orientation_array %>
+    <%= f.text_field :orientation_array %>
+  </p>
+  <%= f.submit %>
+<% end %>
