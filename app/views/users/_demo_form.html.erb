@@ -1,0 +1,12 @@
+<%= form_tag("/demographics", method: "post") do %>
+  <p>
+    <%= label_tag(:gender_string, "Please input gender(s): ") %>
+    <%= text_field_tag(:gender_string) %>
+    <%= submit_tag("Submit") %>
+  </p>
+  <p>
+    <%= label_tag(:orientation_string, "Please input orientation(s): ") %>
+    <%= text_field_tag(:orientation_string) %>
+    <%= submit_tag("Submit") %>
+  </p>
+<% end %>

@@ -5,5 +5,7 @@ TwitterDiversityReport::Application.routes.draw do
   post "users" => 'users#create'
 
   match 'auth/:provider/callback', to: 'sessions#create'
+  # match 'auth/failure', to: redirect(users_path)
+  match 'signout', to: 'sessions#destroy', :as => "signout"
 
 end

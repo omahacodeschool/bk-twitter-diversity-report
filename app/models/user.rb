@@ -4,17 +4,35 @@ class User < ActiveRecord::Base
   serialize :gender_array, Array
   serialize :orientation_array, Array
   
-  # client = Twitter::REST::Client.new do |config|
-  #   config.consumer_key        = "lR6cZFq2LxeGb5PEJd3AkHP4e"
-  #   config.consumer_secret     = "wuwmK2oXoLkmIOnDpr2rhImZrXi54yUQwYpJP8xhRbdxQGAOn9"
-  #   config.access_token        = "2288559728-oY0jrZ99KfzaKxKrqFq7EICOXmecy0YQY9lnbBy"
-  #   config.access_token_secret = "52bJo8FkbbFGq74Y0btwM1qSYu7MxAymi7OxwteWd3jFH"
-  # end
-  #
-  # binding.pry
+  client = Twitter::REST::Client.new do |config|
+    config.consumer_key        = ENV['CONSUMER_KEY']
+    config.consumer_secret     = ENV['CONSUMER_SECRET']
+    config.access_token        = ENV['ACCESS_TOKEN']  # This will be a variable grabbed from env['omniauth.auth']
+    config.access_token_secret = ENV['ACCESS_SECRET'] # This will be a variable grabbed from env['omniauth.auth']
+  end
+
+  def self.from_omniauth(auth)
+    where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
+  end
   
+  def self.create_from_omniauth(auth)
+    create! do |user|
+      user.provider = auth["provider"]
+      user.uid = auth["uid"]
+      user.name = auth["info"]["nickname"]
+    end
+  end
+  
+  # Remove commas, spaces and the subString "and" from a string and convert the String into an Array of Strings
+  #
+  # Example:
+  #
+  # "red,dark blue, and ,green".string_to_array
+  # => ["red", "dark", "blue", "green"]
+  #
+  # Returns and Array of Strings
   def string_to_array(string)
-    string.split(" ")
+    string.gsub(',', ' ').gsub('and', ' ').split(' ')
   end
   
 end
