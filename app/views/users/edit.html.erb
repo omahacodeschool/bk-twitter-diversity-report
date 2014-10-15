@@ -1,0 +1,16 @@
+<h1>Enter/Edit Your Demographic Information</h1>
+
+<%= form_for @user, url: edit_user_path do |builder| %>
+  <div class="field">
+    <%= builder.label :gender_string, "Please input gender(s): " %><br />
+    <%= builder.text_field :gender_string %>    
+  </div>
+  <div class="field">
+    <%= builder.label :orientation_string, "Please input orientation(s): " %><br />
+    <%= builder.text_field :orientation_string %>    
+  </div>
+  <div class="action">
+    <%= builder.submit %>
+  </div>
+  
+<% end %>
