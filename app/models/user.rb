@@ -1,17 +1,18 @@
 class User < ActiveRecord::Base
-  attr_accessible :gender_array, :name, :orientation_array, :provider
+  attr_accessible :gender_string, :orientation_string
+  attr_reader :gender_string, :orientation_string
   # has_many :reports
   serialize :gender_array, Array
   serialize :orientation_array, Array
   
-  client = Twitter::REST::Client.new do |config|
+  $client = Twitter::REST::Client.new do |config|
     config.consumer_key        = ENV['CONSUMER_KEY']
     config.consumer_secret     = ENV['CONSUMER_SECRET']
-    config.access_token        = ENV['ACCESS_TOKEN']  # This will be a variable grabbed from env['omniauth.auth']
-    config.access_token_secret = ENV['ACCESS_SECRET'] # This will be a variable grabbed from env['omniauth.auth']
+    binding.pry
   end
 
   def self.from_omniauth(auth)
+    # binding.pry
     where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
   end
   
@@ -20,6 +21,8 @@ class User < ActiveRecord::Base
       user.provider = auth["provider"]
       user.uid = auth["uid"]
       user.name = auth["info"]["nickname"]
+      user.token = auth["credentials"]["token"]
+      user.secret = auth["credentials"]["secret"]
     end
   end
   
@@ -31,8 +34,15 @@ class User < ActiveRecord::Base
   # => ["red", "dark", "blue", "green"]
   #
   # Returns and Array of Strings
-  def string_to_array(string)
-    string.gsub(',', ' ').gsub('and', ' ').split(' ')
+  def string_to_array
+    self.gsub(',', ' ').gsub('and', ' ').split(' ')
   end
   
+  def gender_string=(gender_string)
+    self.gender_array=gender_string.gsub(',', ' ').gsub('and', ' ').split(' ')
+  end
+  
+  def orientation_string=(orientation_string)
+    self.orientation_array=orientation_string.gsub(',', ' ').gsub('and', ' ').split(' ')
+  end
 end
