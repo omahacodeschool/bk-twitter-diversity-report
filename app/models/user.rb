@@ -4,11 +4,11 @@ class User < ActiveRecord::Base
   serialize :gender_array, Array
   serialize :orientation_array, Array
   
-  client = Twitter::REST::Client.new do |config|
+  $client = Twitter::REST::Client.new do |config|
     config.consumer_key        = ENV['CONSUMER_KEY']
     config.consumer_secret     = ENV['CONSUMER_SECRET']
-    config.access_token        = ENV['ACCESS_TOKEN']  # This will be a variable grabbed from env['omniauth.auth']
-    config.access_token_secret = ENV['ACCESS_SECRET'] # This will be a variable grabbed from env['omniauth.auth']
+    # config.access_token        = ENV['ACCESS_TOKEN']  # This will be a variable grabbed from env['omniauth.auth']
+    # config.access_token_secret = ENV['ACCESS_SECRET'] # This will be a variable grabbed from env['omniauth.auth']
   end
 
   # binding.pry
@@ -37,17 +37,12 @@ class User < ActiveRecord::Base
     string.gsub(',', ' ').gsub('and', ' ').split(' ')
   end
   
-  # def self.array_of_followers_ids(auth)
-  #   user_auth_hash = from_omniauth(env['omniauth.auth'])
-  #   token = auth_user[:credentials]["token"]
-  #   secret = auth_user[:credentials]["secret"]
-  #   # binding.pry
-  # end
   
-  def followers_ids
-    id_arr = []
+  def self.friends_ids_array(twitter_name)
     
-    friends = client.friends.to_a
+    id_arr = []
+    friends = $client.friends(twitter_name)
+  
     friends.each do |f|
       id_arr << f.id
     end
