@@ -8,12 +8,9 @@ class User < ActiveRecord::Base
   $client = Twitter::REST::Client.new do |config|
     config.consumer_key        = ENV['CONSUMER_KEY']
     config.consumer_secret     = ENV['CONSUMER_SECRET']
-<<<<<<< HEAD
     # config.access_token        = ENV['ACCESS_TOKEN']  # This will be a variable grabbed from env['omniauth.auth']
     # config.access_token_secret = ENV['ACCESS_SECRET'] # This will be a variable grabbed from env['omniauth.auth']
-=======
     binding.pry
->>>>>>> master
   end
 
   # binding.pry
