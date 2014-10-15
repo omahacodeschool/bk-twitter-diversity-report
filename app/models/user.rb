@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
     config.access_token_secret = ENV['ACCESS_SECRET'] # This will be a variable grabbed from env['omniauth.auth']
   end
 
+  # binding.pry
+
   def self.from_omniauth(auth)
     where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
   end
