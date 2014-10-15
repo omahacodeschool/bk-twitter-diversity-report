@@ -37,4 +37,7 @@ class User < ActiveRecord::Base
     string.gsub(',', ' ').gsub('and', ' ').split(' ')
   end
   
+  def array_of_followers_ids
+  end
+  
 end
