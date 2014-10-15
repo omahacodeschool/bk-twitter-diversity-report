@@ -37,7 +37,21 @@ class User < ActiveRecord::Base
     string.gsub(',', ' ').gsub('and', ' ').split(' ')
   end
   
-  def array_of_followers_ids
+  # def self.array_of_followers_ids(auth)
+  #   user_auth_hash = from_omniauth(env['omniauth.auth'])
+  #   token = auth_user[:credentials]["token"]
+  #   secret = auth_user[:credentials]["secret"]
+  #   # binding.pry
+  # end
+  
+  def followers_ids
+    id_arr = []
+    
+    friends = client.friends.to_a
+    friends.each do |f|
+      id_arr << f.id
+    end
+    id_arr
   end
   
 end
