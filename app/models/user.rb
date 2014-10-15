@@ -7,8 +7,8 @@ class User < ActiveRecord::Base
   client = Twitter::REST::Client.new do |config|
     config.consumer_key        = ENV['CONSUMER_KEY']
     config.consumer_secret     = ENV['CONSUMER_SECRET']
-    config.access_token        = ENV['ACCESS_TOKEN']
-    config.access_token_secret = ENV['ACCESS_SECRET']
+    config.access_token        = ENV['ACCESS_TOKEN']  # This will be a variable grabbed from env['omniauth.auth']
+    config.access_token_secret = ENV['ACCESS_SECRET'] # This will be a variable grabbed from env['omniauth.auth']
   end
 
   def self.from_omniauth(auth)
@@ -23,8 +23,16 @@ class User < ActiveRecord::Base
     end
   end
   
+  # Remove commas, spaces and the subString "and" from a string and convert the String into an Array of Strings
+  #
+  # Example:
+  #
+  # "red,dark blue, and ,green".string_to_array
+  # => ["red", "dark", "blue", "green"]
+  #
+  # Returns and Array of Strings
   def string_to_array(string)
-    string.split(" ")
+    string.gsub(',', ' ').gsub('and', ' ').split(' ')
   end
   
 end
