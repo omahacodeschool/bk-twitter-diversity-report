@@ -2,6 +2,10 @@ class UsersController < ApplicationController
   
   def index
     @users=User.all
+<<<<<<< HEAD
+    binding.pry
+=======
+>>>>>>> master
   end
   
   def show
@@ -21,6 +25,8 @@ class UsersController < ApplicationController
     end
   end
   
+<<<<<<< HEAD
+=======
   def create
     @user = User.new(params[:user])
     
@@ -49,4 +55,5 @@ class UsersController < ApplicationController
   #   end
   # end
   
+>>>>>>> master
 end

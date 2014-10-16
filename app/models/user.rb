@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  attr_accessible :gender_string, :orientation_string, :name
+  attr_accessible :gender_string, :orientation_string, :name, :gender_array, :orientation_array, :uid, :provider
+
   attr_reader :gender_string, :orientation_string
   # has_many :reports
   serialize :gender_array, Array
@@ -39,8 +40,6 @@ class User < ActiveRecord::Base
     self.gsub(',', ' ').gsub('and', ' ').split(' ')
   end
   
-
-  
   def self.friends_ids_array(twitter_name)
     
     id_arr = []
@@ -52,7 +51,6 @@ class User < ActiveRecord::Base
     id_arr
   end
   
-
   def gender_string=(gender_string)
     self.gender_array=gender_string.gsub(',', ' ').gsub('and', ' ').split(' ')
   end

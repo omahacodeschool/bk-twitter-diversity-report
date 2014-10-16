@@ -2,7 +2,10 @@
 
 <% @users.each do |u| %>
   <p>
-    <%= u.id %>
+    @<%= u.name %> - Twitter id: <%= u.uid %>
+  </p>
+  <p>
+    <%= u.id %> 
     <%= u.gender_array %>
     <%= u.orientation_array %>
   </p>
