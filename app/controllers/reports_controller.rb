@@ -4,7 +4,8 @@ class ReportsController < ApplicationController
   end
 
   def show
-    @report = Report.find_by_id(params[:id])
+    @user = User.find_by_name(params[:name])
+    # @report = Report.find_by_id(params[:id])
     
   end
 end
