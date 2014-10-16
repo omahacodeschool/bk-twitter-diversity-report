@@ -1,15 +1,15 @@
 TwitterDiversityReport::Application.routes.draw do
   
-  get "reports/new"
+  get "reports/new" => 'reports#new', :as => "new_report"
 
-  get "reports/show"
+  get "reports/:nickname" => 'reports#show', :as => "report"
 
   root :to => 'pages#welcome'
   
   get "users" => 'users#index', :as => "users"
   post "users" => 'users#create'
-  get "users/:id/edit" => 'users#edit', :as => "edit_user" #took out id since user is "new"
-  put "users/:id/edit" => 'users#update'
+  get "users/:name/edit" => 'users#edit', :as => "edit_user"
+  put "users/:name/edit" => 'users#update'
   get "welcome" => 'pages#welcome', :as => "welcome"
   
   get "optional" => 'pages#optional', :as => "optional"

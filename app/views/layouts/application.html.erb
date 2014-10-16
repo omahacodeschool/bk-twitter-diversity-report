@@ -8,20 +8,24 @@
 </head>
 <body>
   
-
   
   <div id="user_nav">
     <% if current_user %>
       Signed in as <%= current_user.name %>
       <%= link_to "Sign out", signout_path %>
     <% else %>
-      <%= link_to "Sign in with Twitter", "/auth/twitter" %>
+   
     <% end %>
   </div>
   
-  <%= flash.each do |name, msg| %>
-    <%= content_tag :div, msg, id: "flash_#{name}"%>
-  <% end %>
+	<% if flash[:notice] %>
+		<p id="notice"><%= flash[:notice]%>
+	<% end %>
+
+
+	<% if flash[:alert] %>
+		<p id="alert"><%= flash[:alert]%>
+	<% end %>
 
 <%= yield %>
 

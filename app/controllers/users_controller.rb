@@ -9,13 +9,14 @@ class UsersController < ApplicationController
   end
   
   def edit
-    @user = User.find_by_id(params[:id])
+    @user = User.find_by_name(params[:name])
   end
   
   def update
-    @user=User.find_by_id(params[:id])
+    session[:nickname] = params[:nickname]
+    @user=User.find_by_name(params[:name])
     if @user.update_attributes(params[:user])
-      redirect_to users_path, notice: "Your demographics have been saved."
+      redirect_to report_path(@user.name), notice: "Your demographics have been saved. Checkout your report!"
     else
       render "edit"
     end

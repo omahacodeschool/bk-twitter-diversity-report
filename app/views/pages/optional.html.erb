@@ -1,9 +1,9 @@
 <h1>Help us out!</h1>
 
-<p>We would like to add you demographic information!</p>
+<p>We would like to add your demographic information!</p>
 
-<p>This will help us provide the best and most impactful report for each user.</p>
+<p>This will help us provide the most impactful report for each user.</p>
 
-<p><%= link_to "Sign in with Twitter", "/auth/twitter" %></p>
+<p><%= link_to "Please sign in with Twitter to make a report!", "/auth/twitter" %></p>
 
-<p>Link: Or go straight to you demographic report</p>
+<p><%= link_to "Or go straight the demographic report", report_path(session[:nickname]) %></p>
