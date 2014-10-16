@@ -10,10 +10,9 @@ class User < ActiveRecord::Base
     config.consumer_secret     = ENV['CONSUMER_SECRET']
     # config.access_token        = ENV['ACCESS_TOKEN']  # This will be a variable grabbed from env['omniauth.auth']
     # config.access_token_secret = ENV['ACCESS_SECRET'] # This will be a variable grabbed from env['omniauth.auth']
-    binding.pry
+    # binding.pry
   end
 
-  # binding.pry
 
   def self.from_omniauth(auth)
     # binding.pry
@@ -42,7 +41,7 @@ class User < ActiveRecord::Base
     self.gsub(',', ' ').gsub('and', ' ').split(' ')
   end
   
-<<<<<<< HEAD
+
   
   def self.friends_ids_array(twitter_name)
     
@@ -55,7 +54,7 @@ class User < ActiveRecord::Base
     id_arr
   end
   
-=======
+
   def gender_string=(gender_string)
     self.gender_array=gender_string.gsub(',', ' ').gsub('and', ' ').split(' ')
   end
@@ -63,5 +62,5 @@ class User < ActiveRecord::Base
   def orientation_string=(orientation_string)
     self.orientation_array=orientation_string.gsub(',', ' ').gsub('and', ' ').split(' ')
   end
->>>>>>> master
+
 end
