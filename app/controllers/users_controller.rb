@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   
   def index
     @users=User.all
-    # binding.pry
   end
   
   def show
@@ -10,7 +9,7 @@ class UsersController < ApplicationController
   end
   
   def edit
-    @user=User.find_by_id(params[:id])
+    @user = User.new
   end
   
   def update
@@ -21,6 +20,19 @@ class UsersController < ApplicationController
       render "edit"
     end
   end
+  
+  def create
+    @user = User.new(params[:user])
+    
+    if @user.save
+      redirect_to optional_path
+    else
+      render welcome_path
+    end
+    
+  end
+    
+    
   
   # def new
   #   @user=User.new
