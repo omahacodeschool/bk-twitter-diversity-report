@@ -2,7 +2,7 @@ TwitterDiversityReport::Application.routes.draw do
   
   get "reports/new"
 
-  get "reports/show"
+  get "reports/show" => 'reports#show'
 
   root :to => 'pages#welcome'
   
