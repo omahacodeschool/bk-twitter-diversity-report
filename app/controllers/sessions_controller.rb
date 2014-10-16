@@ -4,12 +4,12 @@ class SessionsController < ApplicationController
    # @token=request.env['omniauth.auth']['credentials']['token']
    # @secret=request.env['omniauth.auth']['credentials']['secret']
    session[:user_id] = user.id
-   redirect_to users_path, notice: "Signed in!"
+   redirect_to edit_user_path(current_user.id), notice: "Signed in!"
   end
   
   def destroy
     session[:user_id] = nil
-    redirect_to users_path, notice: "Signed out!"
+    redirect_to welcome_path, notice: "Signed out!"
   end
   
 end

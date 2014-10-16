@@ -13,10 +13,8 @@ class User < ActiveRecord::Base
     # config.access_token_secret = ENV['ACCESS_SECRET'] # This will be a variable grabbed from env['omniauth.auth']
   end
 
-  # binding.pry
 
   def self.from_omniauth(auth)
-    # binding.pry
     where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
   end
   
@@ -60,4 +58,5 @@ class User < ActiveRecord::Base
   def orientation_string=(orientation_string)
     self.orientation_array=orientation_string.gsub(',', ' ').gsub('and', ' ').split(' ')
   end
+
 end
