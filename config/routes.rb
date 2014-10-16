@@ -1,5 +1,9 @@
 TwitterDiversityReport::Application.routes.draw do
   
+  get "reports/new"
+
+  get "reports/show"
+
   root :to => 'pages#welcome'
   
   get "users" => 'users#index', :as => "users"
