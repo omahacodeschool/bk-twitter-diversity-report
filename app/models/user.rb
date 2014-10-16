@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :gender_string, :orientation_string
+  attr_accessible :gender_string, :orientation_string, :name
   attr_reader :gender_string, :orientation_string
   # has_many :reports
   serialize :gender_array, Array

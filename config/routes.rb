@@ -1,6 +1,7 @@
 TwitterDiversityReport::Application.routes.draw do
   
   get "users" => 'users#index', :as => "users"
+  post "users" => 'users#create'
   get "users/:id/edit" => 'users#edit', :as => "edit_user"
   put "users/:id/edit" => 'users#update'
   get "welcome" => 'pages#welcome', :as => "welcome"
