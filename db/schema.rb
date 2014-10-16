@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141015183503) do
+ActiveRecord::Schema.define(:version => 20141016190155) do
+
+  create_table "reports", :force => true do |t|
+    t.string   "user_name"
+    t.text     "gender_hash"
+    t.text     "orientation_hash"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"
