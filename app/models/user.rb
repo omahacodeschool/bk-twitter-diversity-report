@@ -42,8 +42,6 @@ class User < ActiveRecord::Base
     self.gsub(',', ' ').gsub('and', ' ').split(' ')
   end
   
-<<<<<<< HEAD
-  
   def self.friends_ids_array(twitter_name)
     
     id_arr = []
@@ -55,7 +53,6 @@ class User < ActiveRecord::Base
     id_arr
   end
   
-=======
   def gender_string=(gender_string)
     self.gender_array=gender_string.gsub(',', ' ').gsub('and', ' ').split(' ')
   end
@@ -63,5 +60,4 @@ class User < ActiveRecord::Base
   def orientation_string=(orientation_string)
     self.orientation_array=orientation_string.gsub(',', ' ').gsub('and', ' ').split(' ')
   end
->>>>>>> master
 end
