@@ -1,11 +1,11 @@
 class PagesController < ApplicationController
   
   def welcome
-    @user = User.new
+    
   end
   
   def optional
-    
+    session[:nickname] = params[:nickname]
   end
   
 end

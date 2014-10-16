@@ -1,10 +1,10 @@
 <h1>Twitter Diversity Report<h1>
 
-<%= form_for @user do |f| %>
+<%= form_tag optional_path, :method => 'get' do %>
   <p>
-    <%= f.label(:name, "What is you Twitter username?") %>
-    <%= f.text_field(:name) %>
+    <%= label_tag(:nickname, "What is you Twitter username?") %>
+    <%= text_field_tag(:nickname) %>
   </p>
-  <%= f.submit("Submit") %>
+  <%= submit_tag("Submit") %>
 <% end %>
 
