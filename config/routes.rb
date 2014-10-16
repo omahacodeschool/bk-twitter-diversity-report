@@ -5,6 +5,8 @@ TwitterDiversityReport::Application.routes.draw do
   get "users/:id/edit" => 'users#edit', :as => "edit_user"
   put "users/:id/edit" => 'users#update'
   get "welcome" => 'pages#welcome', :as => "welcome"
+  
+  get "optional" => 'pages#optional', :as => "optional"
 
   match 'auth/:provider/callback', to: 'sessions#create'
   # match 'auth/failure', to: redirect(users_path)

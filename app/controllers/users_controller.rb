@@ -26,9 +26,9 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     
     if @user.save
-      redirect_to users_path
+      redirect_to optional_path
     else
-      render "welcome"
+      render welcome_path
     end
     
   end
