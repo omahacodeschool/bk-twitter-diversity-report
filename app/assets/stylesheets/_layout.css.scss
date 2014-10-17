@@ -2,6 +2,8 @@
 body{
   width: 95%;
   margin: 0 auto;
+	//background-image: url("/lightwater.jpg") no-repeat;
+	//background-color: #99A7CA;
 }
 
 
@@ -13,41 +15,14 @@ content{
 }
 
 header{
-  background: url("./images/blue.jpg");
-	background-size: 100%;
-	background-repeat: no-repeat;	
-	padding: 10px 10px 10px 0;
-  
+	padding: 10px 0;
+ 
 }
 
 footer{
-	
+	text-align: center;
+	padding: 10px 0;
 }
-
-
-h1#namlogo {
-  width: 100%; 
-  padding-top: 29.8%;
-  height: 0;
-  background-position: left center; 
-  background: url("/Nam_Logo.png") no-repeat;
-  background-size: 100%;
-  text-indent: -9999px;
-  z-index: -2;
-}
-
-
-#login{
-  width: 80%;
-  margin: 0 auto;
-  padding: 5%;
-}
-
-
-
-
-
-
 
 input{
   width:100%;

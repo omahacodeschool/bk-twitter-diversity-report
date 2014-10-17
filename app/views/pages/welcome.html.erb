@@ -2,9 +2,9 @@
 	<h2>See a report of the various demographics represented by the people whom you follow on Twitter!</h2>
 
 	 	<%= form_tag optional_path, :method => 'get' do %>
-		<p>
+		<div id="twitter">
 			<%= label_tag(:nickname, "What's your Twitter username?") %>
-		</p>
+		</div>
 		
 	    <%= text_field_tag(:nickname) %>
 

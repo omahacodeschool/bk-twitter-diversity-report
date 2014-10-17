@@ -1,21 +1,30 @@
-$nam-blue: #1B5AA9;
+$nam-blue: #0D2B52;
 $nam-grey: #B6B6B9;
 $nam-yellow: #ffc300;
+$nam-blue-light:#1B5AED;
 
 $body-font:'Roboto Condensed', sans-serif;
 $header-font: 'Raleway', sans-serif;;
 
-
+h1{
+  font: 56px $header-font;
+  color: $nam-blue;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+	text-align: center;
+}
+	
 h2{
   font: 24px $header-font;
-  color: $nam-blue;
+  color: $nam-blue-light;
   letter-spacing: .5px;
   //text-transform: uppercase;
 }
 
 h3{
   font: 20px $body-font;
-  text-decoration: underline
+  text-decoration: underline;
+	text-align: center;
 }
 
 h4{
@@ -26,6 +35,13 @@ h4{
 p {
   font: 16px $body-font;
   
+}
+
+#twitter{
+	font: 18px $body-font;
+	text-align: center;
+	padding: 15px 0;
+	
 }
 
 a {

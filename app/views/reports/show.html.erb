@@ -1,20 +1,21 @@
-<div id="user_nav">
+
+<h2>TWITTERNAME's Report!</h2>
+
+<h4>
   <% if current_user %>
     Signed in as <%= current_user.name %>
-    <%= link_to "Sign out", signout_path %>
+    <%= link_to "| Sign out", signout_path %>
   <% else %>
 
   <% end %>
-</div>
-
-<h1>TWITTERNAME's Report</h1>
+</h4>
 
 <h4>% of whom TWITTERNAME follows that have added their demographic information </h4>
 
-<p><%= Time.now.asctime %></p>
+	<p><%= Time.now.asctime %></p>
 
-<p>Gender Report<p>
+	<p>Gender Report<p>
 
-<p>Orientation Report<p>
+	<p>Orientation Report<p>
 
-<p>Link to share on twitter<p>
+	<p>Link to share on twitter<p>
