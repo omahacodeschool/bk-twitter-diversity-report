@@ -9,7 +9,7 @@ User.create([
   {name: 'deesley', gender_array: ["male"], orientation_array: ["straight", "willywonka"], uid: 20357402, provider: 'twitter'},
   {name: 'judyhaubert', gender_array: ["female"], orientation_array: ["straight"], uid: 21050579, provider: 'twitter'},
   {name: 'RebeccaStavick', gender_array: ["female"], orientation_array: ["transexual"], uid: 220215758, provider: 'twitter'},
-  {name: 'shanereiser', gender_array: ["female"], orientation_array: ["willwonka"], uid: 14827652, provider: 'twitter'},
+  {name: 'shanereiser', gender_array: ["female"], orientation_array: ["willywonka"], uid: 14827652, provider: 'twitter'},
   {name: 'AbbyJones80', gender_array: ["female", "Alsatian"], orientation_array: ["straight"], uid: 72378188, provider: 'twitter'},
   {name: 'slobotski', gender_array: ["male"], orientation_array: ["bilingual"], uid: 7963772, provider: 'twitter'}
 ])

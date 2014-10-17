@@ -1,7 +1,7 @@
 TwitterDiversityReport::Application.routes.draw do
   
   get "reports/new" => 'reports#new', :as => "new_report"
-
+  post "reports" => 'reports#create'
   get "reports/:nickname" => 'reports#show', :as => "report"
 
   root :to => 'pages#welcome'

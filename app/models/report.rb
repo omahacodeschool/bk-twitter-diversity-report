@@ -6,18 +6,43 @@ class Report < ActiveRecord::Base
   def generate
     # ActiveRecord collection of users in our DB who have given demo info.
     # (These users are the people whom this report's Tweetee follows.)
-    friends = get_user_objects_for_report
+    friends = get_user_objects_for_report(self.user_name)
     
-    # ...
-    # calculated_gender_info  = ...
+    genders_array = []
+    friends.each do |f|
+      (genders_array << f.gender_array).flatten!
+    end
     
+    orientations_array= []
+    friends.each do |f|
+      (orientations_array << f.orientation_array).flatten!
+    end
+    
+    calculated_gender_info = {}
+    genders_array.each do |c|
+      if calculated_gender_info.has_key?(c)
+        calculated_gender_info[c] += 1
+      else
+        calculated_gender_info[c] = 1
+      end
+    end
+
+    calculated_orientation_info = {}
+    orientations_array.each do |c|
+      if calculated_orientation_info.has_key?(c)
+        calculated_orientation_info[c] += 1
+      else
+        calculated_orientation_info[c] = 1
+      end
+    end
+
     self.update_attributes(gender_hash: calculated_gender_info, orientation_hash: calculated_orientation_info)
   end
   
   # Returns an Array of User objects that tweeter is following
-  def get_user_objects_for_report
+  def get_user_objects_for_report(tweeter)
     following_objects=[]
-    following_ids=User.friends_ids_array(tweeter)
+    following_ids=User.friends_ids_array(tweeter)   # s/b an instance method on report_object.user_name
     following_ids.each do |twitter_id|
       string_id=twitter_id.to_s
       user_object=User.find_by_uid(string_id)
@@ -27,18 +52,36 @@ class Report < ActiveRecord::Base
   end
   
   # Returns an Array containing all the genders, orientations or abilities from a particular attribute of an Array of objects
-  def array_from_user(following)
+  def extract_genders
     collection=[]
-    following.each do |u|
+    self.each do |u|
       (collection << u.gender_array).flatten!
     end
     collection
   end
   
+  # Returns an Array containing all the genders, orientations or abilities from a particular attribute of an Array of objects
+  def extract_orientations
+    collection=[]
+    self.each do |u|
+      (collection << u.orientation_array).flatten!
+    end
+    collection
+  end
+  
+  # Returns an Array containing all the abilities from a abilities_arrays of an Array of objects
+  # def extract_abilities
+  #   collection=[]
+  #   self.each do |u|
+  #     (collection << u.abilities_array).flatten!
+  #   end
+  #   collection
+  # end
+  
   # Returns a Hash where the keys are the elements of the collection and the values are the number of occurences of each element
-  def count_from_array(collection)
+  def count_from_array
     collection_sums={}
-    collection.each do |c|
+    self.each do |c|
       if collection_sums.has_key?(c)
         collection_sums[c] += 1
       else
@@ -48,12 +91,16 @@ class Report < ActiveRecord::Base
     collection_sums
   end
   
-  def gender_array=(gender_array)
-    self.gender_hash=gender_array.count_from_array
-  end
-  
-  def orientation_array=(orientation_array)
-    self.orientation_hash=orientation_array.count_from_array
-  end
-  
 end
+
+
+# def generate
+#   # ActiveRecord collection of users in our DB who have given demo info.
+#   # (These users are the people whom this report's Tweetee follows.)
+#   friends = get_user_objects_for_report(self.user_name)
+#   genders_array = friends.extract_genders
+#   orientations_array = friends.extract_orientations
+#   calculated_gender_info = genders_array.count_from_array
+#   calculated_orientation_info = orientations_array.count_from_array
+#   self.update_attributes(gender_hash: calculated_gender_info, orientation_hash: calculated_orientation_info)
+# end

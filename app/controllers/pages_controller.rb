@@ -1,11 +1,10 @@
 class PagesController < ApplicationController
   
   def welcome
-    
+    @report=Report.new
   end
   
   def optional
-    session[:nickname] = params[:nickname]
   end
   
 end
