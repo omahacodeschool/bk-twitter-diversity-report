@@ -1,30 +1,33 @@
 
 <h2><%= @report.user_name %>'s Report!</h2>
-	<p><%= Time.now.asctime %></p>
+	
+	<h4>
+	  <% if current_user %>
+	    Signed in as <%= current_user.name %>
+	    <%= link_to "| Sign out", signout_path %>
+	  <% else %>
 
-<h4>% of whom TWITTERNAME follows that have added their demographic information </h4>
+	  <% end %>
+	</h4>
 
-<p>GENDER REPORT<p>
+<h4>% of whom <%= @report.user_name %> follows that have added their demographic information </h4>
+
+
+<p><%= Time.now.asctime %></p>
+
+<h2>GENDER REPORT</h2>
   <div class="results">
     <% @report.gender_hash.each do |key, value| %>
       <p>following <%= value %> <%= key %> tweeters</p>
     <% end %>
   </div>
   <br />
-<P>ORIENTATION REPORT<P>
+<h2>ORIENTATION REPORT</h2>
   <div class="results">
     <% @report.orientation_hash.each do |key, value| %>
       <p>following <%= value %> <%= key %> tweeters</p>
     <% end %>
   </div>
-
-<h4>
-  <% if current_user %>
-    Signed in as <%= current_user.name %>
-    <%= link_to "| Sign out", signout_path %>
-  <% else %>
-
-  <% end %>
-</h4>
-
+	
 	<p>Link to share on twitter<p>
+	<%= link_to "Home", root_url%>
