@@ -4,15 +4,24 @@ body{
   margin: 0 auto;
 }
 
-#logo{
-  width: 100%;
-  padding-top:30px;
-}
+
 
 content{
   width: 90%;
   padding-top: 30px;
   
+}
+
+header{
+  background: url("./images/blue.jpg");
+	background-size: 100%;
+	background-repeat: no-repeat;	
+	padding: 10px 10px 10px 0;
+  
+}
+
+footer{
+	
 }
 
 
@@ -34,15 +43,10 @@ h1#namlogo {
   padding: 5%;
 }
 
-.current_user{
-  width: 100%;
-  text-align: right;
-  margin-top: 5px;
-}
 
-#checklists{
-  margin: 20px auto;
-}
+
+
+
 
 
 input{

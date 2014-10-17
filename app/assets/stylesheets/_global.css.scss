@@ -5,6 +5,7 @@ $nam-yellow: #ffc300;
 $body-font:'Roboto Condensed', sans-serif;
 $header-font: 'Raleway', sans-serif;;
 
+
 h2{
   font: 24px $header-font;
   color: $nam-blue;
@@ -14,8 +15,13 @@ h2{
 
 h3{
   font: 20px $body-font;
-  
+  text-decoration: underline
 }
+
+h4{
+  font: 20px $body-font;
+}
+
 
 p {
   font: 16px $body-font;

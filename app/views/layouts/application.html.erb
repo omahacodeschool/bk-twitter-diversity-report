@@ -9,27 +9,32 @@
  <link href='http://fonts.googleapis.com/css?family=Raleway:500' rel='stylesheet' type='text/css'>
 </head>
 <body>
+	
+	<header>
+		<div class="logo">
+			<h1>Twitter Diversity Report<h1>
+		</div>
+	</header>
   
   
-  <div id="user_nav">
-    <% if current_user %>
-      Signed in as <%= current_user.name %>
-      <%= link_to "Sign out", signout_path %>
-    <% else %>
-   
-    <% end %>
-  </div>
+ 
   
-	<% if flash[:notice] %>
-		<p id="notice"><%= flash[:notice]%>
-	<% end %>
+		<% if flash[:notice] %>
+			<p id="notice"><%= flash[:notice]%>
+		<% end %>
 
 
-	<% if flash[:alert] %>
-		<p id="alert"><%= flash[:alert]%>
-	<% end %>
+		<% if flash[:alert] %>
+			<p id="alert"><%= flash[:alert]%>
+		<% end %>
 
-<%= yield %>
+			<%= yield %>
+			
+	<footer>
+		<p> Created by Tony Plaza and Jason Laux.<br><a href="http://omahacodeschool.com/"> Thanks to Omaha Code School!</a></p>
+	</footer>
+
+	
 
 </body>
 </html>

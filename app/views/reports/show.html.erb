@@ -1,7 +1,17 @@
-<h1>NAME's Report</h1>
-<p><%= Time.now.asctime %></p>
+<div id="user_nav">
+  <% if current_user %>
+    Signed in as <%= current_user.name %>
+    <%= link_to "Sign out", signout_path %>
+  <% else %>
 
-<p>This percentage of followers have provided demographic information!</p>
+  <% end %>
+</div>
+
+<h1>TWITTERNAME's Report</h1>
+
+<h4>% of whom TWITTERNAME follows that have added their demographic information </h4>
+
+<p><%= Time.now.asctime %></p>
 
 <p>Gender Report<p>
 
