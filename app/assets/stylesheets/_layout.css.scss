@@ -1,0 +1,46 @@
+
+body{
+  width: 95%;
+  margin: 0 auto;
+	//background-image: url("/lightwater.jpg") no-repeat;
+	//background-color: #99A7CA;
+}
+
+
+
+content{
+  width: 90%;
+  padding-top: 30px;
+  
+}
+
+header{
+	padding: 10px 0;
+ 
+}
+
+footer{
+	text-align: center;
+	padding: 10px 0;
+}
+
+input{
+  width:100%;
+  margin: 10px auto;
+  border: none;
+  background-color: #ddd;
+  text-align: center;
+  font-size: 15px;
+  height: 20px;
+  border-radius: 2px;
+  
+}
+   
+input.submit {
+  font-size: 20px;
+  width:50%;
+  height: 30px;
+  border-radius:5px;
+  background-color: $nam-yellow; opacity: .60;
+
+}

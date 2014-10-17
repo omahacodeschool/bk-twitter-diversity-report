@@ -1,7 +1,8 @@
-<h1>NAME's Reports</h1>
-<p><%= Time.now %></p>
 
-<p>This percentage of followers have provided demographic information!</p>
+<h2><%= @report.user_name %>'s Report!</h2>
+	<p><%= Time.now.asctime %></p>
+
+<h4>% of whom TWITTERNAME follows that have added their demographic information </h4>
 
 <p>GENDER REPORT<p>
   <div class="results">
@@ -17,4 +18,13 @@
     <% end %>
   </div>
 
-<p>Link to share on twitter<p>
+<h4>
+  <% if current_user %>
+    Signed in as <%= current_user.name %>
+    <%= link_to "| Sign out", signout_path %>
+  <% else %>
+
+  <% end %>
+</h4>
+
+	<p>Link to share on twitter<p>
