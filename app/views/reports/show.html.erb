@@ -1,8 +1,8 @@
 
-<h2><%= @report.user_name %>'s Report!</h2>
+<h2><%= session[:nickname] %>'s Report!</h2>
 	<p><%= Time.now.asctime %></p>
 
-<h4>% of whom TWITTERNAME follows that have added their demographic information </h4>
+<h4>% of whom <%= @report.user_name %> follows that have added their demographic information </h4>
 
 <p>GENDER REPORT<p>
   <div class="results">
