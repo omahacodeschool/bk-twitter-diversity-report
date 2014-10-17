@@ -1,0 +1,67 @@
+
+body{
+  width: 95%;
+  margin: 0 auto;
+}
+
+#logo{
+  width: 100%;
+  padding-top:30px;
+}
+
+content{
+  width: 90%;
+  padding-top: 30px;
+  
+}
+
+
+h1#namlogo {
+  width: 100%; 
+  padding-top: 29.8%;
+  height: 0;
+  background-position: left center; 
+  background: url("/Nam_Logo.png") no-repeat;
+  background-size: 100%;
+  text-indent: -9999px;
+  z-index: -2;
+}
+
+
+#login{
+  width: 80%;
+  margin: 0 auto;
+  padding: 5%;
+}
+
+.current_user{
+  width: 100%;
+  text-align: right;
+  margin-top: 5px;
+}
+
+#checklists{
+  margin: 20px auto;
+}
+
+
+input{
+  width:100%;
+  margin: 10px auto;
+  border: none;
+  background-color: #ddd;
+  text-align: center;
+  font-size: 15px;
+  height: 20px;
+  border-radius: 2px;
+  
+}
+   
+input.submit {
+  font-size: 20px;
+  width:50%;
+  height: 30px;
+  border-radius:5px;
+  background-color: $nam-yellow; opacity: .60;
+
+}
