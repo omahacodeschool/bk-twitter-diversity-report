@@ -3,6 +3,8 @@ class Report < ActiveRecord::Base
   serialize :gender_hash, Hash
   serialize :orientation_hash, Hash
   
+  validates_presence_of :user_name
+  
   def generate
     # ActiveRecord collection of users in our DB who have given demo info.
     # (These users are the people whom this report's Tweetee follows.)
