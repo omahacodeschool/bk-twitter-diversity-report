@@ -6,10 +6,8 @@ class Report < ActiveRecord::Base
   validates_presence_of :user_name
   
   def generate
-    # ActiveRecord collection of users in our DB who have given demo info.
-    # (These users are the people whom this report's Tweetee follows.)
-    # friends = get_user_objects_for_report(self.user_name)
-    friends=User.all
+
+    friends=get_user_objects_for_report(self.user_name)
     
     genders_array = []
     friends.each do |f|
@@ -21,24 +19,9 @@ class Report < ActiveRecord::Base
       (orientations_array << f.orientation_array).flatten!
     end
     
-    #
     calculated_gender_info = count_list_members(genders_array)
-    # genders_array.each do |c|
-    #   if calculated_gender_info.has_key?(c)
-    #     calculated_gender_info[c] += 1
-    #   else
-    #     calculated_gender_info[c] = 1
-    #   end
-    # end
 
     calculated_orientation_info = count_list_members(orientations_array)
-    # orientations_array.each do |c|
-    #   if calculated_orientation_info.has_key?(c)
-    #     calculated_orientation_info[c] += 1
-    #   else
-    #     calculated_orientation_info[c] = 1
-    #   end
-    # end
 
     self.update_attributes(gender_hash: calculated_gender_info, orientation_hash: calculated_orientation_info)
   end

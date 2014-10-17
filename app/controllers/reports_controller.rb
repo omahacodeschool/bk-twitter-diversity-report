@@ -12,7 +12,7 @@ class ReportsController < ApplicationController
       @report.generate
       session[:redirect_to_report_later] = @report.id
       session[:nickname] = @report.user_name
-      # binding.pry
+      binding.pry
       redirect_to optional_path
       # binding.pry
     else
@@ -23,8 +23,11 @@ class ReportsController < ApplicationController
 
   def show
     @report=Report.find_by_user_name(session[:nickname])
+    binding.pry
     @gender=@report.gender_hash
+    binding.pry
     @orientations=@report.orientation_hash
+    binding.pry
     session[:redirect_to_report_later] = nil
   end
   
