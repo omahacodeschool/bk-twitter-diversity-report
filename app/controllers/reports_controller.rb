@@ -4,7 +4,7 @@ class ReportsController < ApplicationController
   end
   
   def create
-    binding.pry
+    # binding.pry
     @report=Report.new(:user_name => params[:report][:user_name])
     
     if @report.save
@@ -12,9 +12,9 @@ class ReportsController < ApplicationController
       @report.generate
       session[:redirect_to_report_later] = @report.id
       session[:nickname] = @report.user_name
-      binding.pry
+      # binding.pry
       redirect_to optional_path
-      binding.pry
+      # binding.pry
     else
       redirect_to root_url, :notice => "Your report could not be generated. Be sure to enter valid Twitter username."
     end

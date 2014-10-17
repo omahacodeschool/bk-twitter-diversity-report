@@ -1,14 +1,17 @@
-<h2>Twitter Diversity Report</h2>
+<center>
+<h2>See a report of the various demographics represented by the people whom you follow on Twitter!</h2>
+</center>
 
-<p>See a report of the various demographics represented by the people whom you follow on Twitter!</p>
+<div id= "twitter">
+	<p>What's your Twitter username?</p>
+</div>
 
 <%= form_for @report, method: 'post' do |f| %>
   <div class="field">
-    <%= f.label :user_name, "Enter a valid Twitter username" %>
     <%= f.text_field :user_name %>
   </div>
   <p>
-    <%= f.submit %>
+    <%= f.submit("Submit") %>
   </p>
 <% end %>
 

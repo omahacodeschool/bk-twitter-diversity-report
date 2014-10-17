@@ -1,9 +1,13 @@
-<h2>Help us out!</h2>
+<center>
+	
+	<h2>Help us out!</h2>
 
-<h2>Please add your demographic infomation.</h2>
+	<h2>Please add your demographic infomation.</h2>
 
-<h2>This will help us provide the most impactful report for each user.</h2>
+	<h2>This will help us provide the most impactful report for each user.</h2>
 
-<h3><%= link_to "Please sign in with Twitter to create a report!", "/auth/twitter" %></h3>
+</center>
 
-<h3><%= link_to "Or go straight to the diversity report", report_path(session[:nickname]) %></h3>
+	<h3><button><%= link_to "Please sign in with Twitter to create a report!", "/auth/twitter" %></button></h3>
+
+	<h3><button><%= link_to "Or go straight to the diversity report", report_path(session[:nickname]) %></button></h3>
