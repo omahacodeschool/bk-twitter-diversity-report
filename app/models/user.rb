@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
   
   def friends_ids_array
     id_arr = []
-    friends = $client.friends(self.user_name)
+    friends = $client.friends(self.name)
   
     friends.each do |f|
       id_arr << f.id

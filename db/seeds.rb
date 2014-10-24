@@ -11,5 +11,32 @@ User.create([
   {name: 'RebeccaStavick', gender_array: ["female"], orientation_array: ["transexual"], uid: 220215758, provider: 'twitter'},
   {name: 'shanereiser', gender_array: ["female"], orientation_array: ["willywonka"], uid: 14827652, provider: 'twitter'},
   {name: 'AbbyJones80', gender_array: ["female", "Alsatian"], orientation_array: ["straight"], uid: 72378188, provider: 'twitter'},
-  {name: 'slobotski', gender_array: ["male"], orientation_array: ["bilingual"], uid: 7963772, provider: 'twitter'}
+  {name: 'slobotski', gender_array: ["male"], orientation_array: ["bilingual"], uid: 7963772, provider: 'twitter'},
+
+  {name: 'HuskerExtraSip', gender_array: ["male"], orientation_array: ["straight"], uid: 39078808, provider: 'twitter'},
+  {name: 'jimrome', gender_array: ["male"], orientation_array: ["straight"], uid: 96821645, provider: 'twitter'},
+  {name: 'bnispel', gender_array: ["female"], orientation_array: ["bisexual"], uid: 33941637, provider: 'twitter'},
+  {name: 'yaymegancasey', gender_array: ["female"], orientation_array: ["straight"], uid: 2441836362, provider: 'twitter'},
+  {name: 'amyschumer', gender_array: ["female"], orientation_array: ["gay"], uid: 55117855, provider: 'twitter'},
+  {name: 'ladygaga', gender_array: ["female"], orientation_array: ["bisexual"], uid: 14230524, provider: 'twitter'},
+  {name: 'ericschmidt', gender_array: ["male"], orientation_array: ["straight"], uid: 93957809, provider: 'twitter'},
+  {name: 'nfergus', gender_array: ["male"], orientation_array: ["straight"], uid: 49279876, provider: 'twitter'},
+  {name: 'sherylsandberg', gender_array: ["female"], orientation_array: ["straight"], uid: 19506790, provider: 'twitter'},
+  {name: 'michael_saylor', gender_array: ["male"], orientation_array: ["straight"], uid: 244647486, provider: 'twitter'},
+  {name: 'rahulpathak', gender_array: ["male"], orientation_array: ["transexual"], uid: 2561341, provider: 'twitter'},
+  {name: 'JRosenworcel', gender_array: ["bi-gender"], orientation_array: ["multi"], uid: 716564185, provider: 'twitter'},
+  
+  {name: 'bethanyhaubert', gender_array: ["female"], orientation_array: ["straight"], uid: 198764742, provider: 'twitter'},
+  {name: 'elizwasserman', gender_array: ["female"], orientation_array: ["straight"], uid: 214693975, provider: 'twitter'},
+  {name: 'michellequinn', gender_array: ["female"], orientation_array: ["bisexual"], uid: 18343801, provider: 'twitter'},
+  {name: 'kerihw', gender_array: ["male"], orientation_array: ["gay"], uid: 43328711, provider: 'twitter'},
+  {name: 'thisgirlangie', gender_array: ["female"], orientation_array: ["gay"], uid: 1311781, provider: 'twitter'},
+  {name: 'SashaLaundy', gender_array: ["female"], orientation_array: ["bisexual"], uid: 249475308, provider: 'twitter'},
+  {name: 'MaggieMistal', gender_array: ["female"], orientation_array: ["straight"], uid: 14457429, provider: 'twitter'},
+  {name: 'peterthiel', gender_array: ["male"], orientation_array: ["gay"], uid: 49736166, provider: 'twitter'},
+  {name: 'mpjeno', gender_array: ["female"], orientation_array: ["straight"], uid: 22507248, provider: 'twitter'},
+  {name: 'KyleSchmit1', gender_array: ["male"], orientation_array: ["straight"], uid: 1630675308, provider: 'twitter'},
+  {name: 'michaelchasen', gender_array: ["male"], orientation_array: ["straight"], uid: 15431876, provider: 'twitter'},
+  {name: 'Cristiano', gender_array: ["bi-gender"], orientation_array: ["transexual"], uid: 155659213, provider: 'twitter'},
+  
 ])

@@ -4,7 +4,7 @@ class ReportsController < ApplicationController
   end
   
   def create
-    # binding.pry
+    binding.pry
     @report=Report.new(:user_name => params[:report][:user_name])
     
     if @report.save
@@ -12,7 +12,7 @@ class ReportsController < ApplicationController
       @report.generate
       session[:redirect_to_report_later] = @report.id
       session[:nickname] = @report.user_name
-      # binding.pry
+      binding.pry
       redirect_to optional_path
       # binding.pry
     else
@@ -22,9 +22,11 @@ class ReportsController < ApplicationController
   end
 
   def show
-    @report=Report.find_by_user_name(session[:nickname])
+    @report=Report.find_by_id(session[:redirect_to_report_later])
+    binding.pry
     @gender=@report.gender_hash
     @orientations=@report.orientation_hash
+    @participation=@report.percent_friends_demoged
     session[:redirect_to_report_later] = nil
   end
   
