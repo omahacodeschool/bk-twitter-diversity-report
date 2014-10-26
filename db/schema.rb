@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141016190155) do
+ActiveRecord::Schema.define(:version => 20141024235715) do
 
   create_table "reports", :force => true do |t|
     t.string   "user_name"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20141016190155) do
     t.text     "orientation_hash"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.decimal  "participation"
   end
 
   create_table "users", :force => true do |t|
