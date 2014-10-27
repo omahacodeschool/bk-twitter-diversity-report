@@ -12,7 +12,7 @@ class ReportsController < ApplicationController
       @report.generate
       session[:redirect_to_report_later] = @report.id
       session[:nickname] = @report.user_name
-      # binding.pry
+      binding.pry
       redirect_to optional_path
     else
       redirect_to root_url, :notice => "Your report could not be generated. Be sure to enter valid Twitter username."
