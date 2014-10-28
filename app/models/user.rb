@@ -40,7 +40,14 @@ class User < ActiveRecord::Base
   
   def friends_ids_array
     id_arr = []
+    
     friends = $client.friends(self.name)
+    begin
+      friends.to_a
+    rescue Twitter::Error::TooManyRequests => error
+      sleep error.rate_limit.reset_in + 1
+      retry
+    end
   
     friends.each do |f|
       id_arr << f.id

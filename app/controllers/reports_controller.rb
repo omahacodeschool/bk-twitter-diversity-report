@@ -4,7 +4,6 @@ class ReportsController < ApplicationController
   end
   
   def create
-    # binding.pry
     @report=Report.new(:user_name => params[:report][:user_name])
     
     if @report.save
@@ -22,7 +21,6 @@ class ReportsController < ApplicationController
 
   def show
     @report=Report.find_by_id(session[:redirect_to_report_later])
-    # binding.pry
     @gender=@report.gender_hash
     @orientations=@report.orientation_hash
     @participation=@report.participation
