@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  require 'core'
   attr_accessible :gender_string, :orientation_string, :name, :gender_array, :orientation_array, :uid, :provider
 
   attr_reader :gender_string, :orientation_string
@@ -34,44 +35,26 @@ class User < ActiveRecord::Base
   # => ["red", "dark", "blue", "green"]
   #
   # Returns and Array of Strings
-  def string_to_array
-    self.gsub(',', ' ').gsub('and', ' ').split(' ')
-  end
-  
-  def friends_ids_array
-    id_arr = []
+  # def string_to_array
+  #   self.gsub(',', ' ').gsub('and', ' ').split(' ')
+  # end
     
-    friends = $client.friends(self.name)
-    begin
-      friends.to_a
-    rescue Twitter::Error::TooManyRequests => error
-      sleep error.rate_limit.reset_in + 1
-      retry
-    end
-  
-    friends.each do |f|
-      id_arr << f.id
-    end
-    id_arr
-  end
-  
-  def self.friends_ids_array(twitter_name)
-    
-    id_arr = []
-    friends = $client.friends(twitter_name)
-  
-    friends.each do |f|
-      id_arr << f.id
-    end
-    id_arr
-  end
-  
   def gender_string=(gender_string)
     self.gender_array=gender_string.gsub(',', ' ').gsub('and', ' ').split(' ')
   end
-  
+
   def orientation_string=(orientation_string)
     self.orientation_array=orientation_string.gsub(',', ' ').gsub('and', ' ').split(' ')
+  end
+  
+  # Feature is any of the serialized column
+  def self.calculated_info(feature)
+    info_array = []
+    self.scoped.each do |f|
+      (info_array << f.send(feature)).flatten!
+    end
+    
+    info_array.count_list_members
   end
 
 end
