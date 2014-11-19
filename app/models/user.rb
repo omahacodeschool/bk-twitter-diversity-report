@@ -27,27 +27,17 @@ class User < ActiveRecord::Base
     end
   end
   
-  # Remove commas, spaces and the subString "and" from a string and convert the String into an Array of Strings
-  #
-  # Example:
-  #
-  # "red,dark blue, and ,green".string_to_array
-  # => ["red", "dark", "blue", "green"]
-  #
-  # Returns and Array of Strings
-  # def string_to_array
-  #   self.gsub(',', ' ').gsub('and', ' ').split(' ')
-  # end
-    
+  # Setter method for updating :gender_array User attribute
   def gender_string=(gender_string)
     self.gender_array=gender_string.gsub(',', ' ').gsub('and', ' ').split(' ')
   end
-
+  
+  # # Setter method for updating :orientation_array User attribute
   def orientation_string=(orientation_string)
     self.orientation_array=orientation_string.gsub(',', ' ').gsub('and', ' ').split(' ')
   end
   
-  # Feature is any of the serialized column
+  # Feature is any of the serialized columns
   def self.calculated_info(feature)
     info_array = []
     self.scoped.each do |f|
